@@ -2,6 +2,7 @@
 
 #include "Tank.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 #include "Engine/World.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
@@ -51,7 +52,6 @@ void ATank::SetTurretReference(UTankTurret * TurretToSet)
 void ATank::Fire()
 {
 	bool bIsReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-	UE_LOG(LogTemp, Warning, TEXT("FIRE!"));
 	if (Barrel && bIsReloaded)
 	{
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(

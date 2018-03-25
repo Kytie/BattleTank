@@ -1,4 +1,4 @@
-// Author: James Kyte
+// Copyright James Kyte
 
 #pragma once
 
@@ -18,6 +18,10 @@ class BATTLETANK_API ATankAIController : public AAIController
 
 private:
 	virtual void Tick(float DeltaTime) override;
+
+	//Distance from player that is acceptable for AI to reach.
+	UPROPERTY(EditDefaultsOnly, Category = Navigation)
+	float AcceptanceRadius = 3000;
 
 protected:
 	virtual void BeginPlay() override;

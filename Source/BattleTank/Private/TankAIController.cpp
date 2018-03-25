@@ -1,4 +1,4 @@
-// Author: James Kyte
+// Copyright James Kyte
 
 #include "TankAIController.h"
 #include "Engine/World.h"
@@ -23,6 +23,7 @@ void ATankAIController::Tick(float DeltaTime)
 	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (ControlledTank && PlayerTank)
 	{
+		MoveToActor(PlayerTank, AcceptanceRadius);
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 		ControlledTank->Fire();
 	}

@@ -9,6 +9,7 @@
 // Forward Declarations.
 class UTankBarrel;
 class UTankAimingComponent;
+class UTankMovementComponent;
 class UTankTurret;
 class AProjectile;
 
@@ -18,6 +19,7 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 protected:
+	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 public:
@@ -40,15 +42,16 @@ private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 4000;
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjetileBlueprint;
 
-	UTankBarrel* Barrel = nullptr;
-
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	float ReloadTimeInSeconds = 3;
+
+	UTankBarrel* Barrel = nullptr;
 
 	double LastFireTime = 0;
 };
