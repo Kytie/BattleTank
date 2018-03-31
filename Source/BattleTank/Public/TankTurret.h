@@ -18,6 +18,6 @@ public:
 	void Rotate(float ReletiveSpeed);
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		float MaxDegreesPerSecond = 25;	
 };

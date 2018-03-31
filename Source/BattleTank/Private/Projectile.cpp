@@ -1,4 +1,4 @@
-// Author: James Kyte
+// Copyright James Kyte
 
 #include "Projectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
