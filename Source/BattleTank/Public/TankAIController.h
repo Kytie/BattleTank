@@ -23,9 +23,6 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Navigation")
 	float AcceptanceRadius = 3000;
 
-protected:
-	virtual void BeginPlay() override;
-
 public:
 	ATankAIController();
 };
