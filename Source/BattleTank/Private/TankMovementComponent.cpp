@@ -14,7 +14,6 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 	if (!ensure(LeftTrack && RightTrack)) { return; }
 	RightTrack->SetThrottle(Throw);
 	LeftTrack->SetThrottle(Throw);
-	
 	//TODO Prevent sholder button and stick combining throttle.
 }
 

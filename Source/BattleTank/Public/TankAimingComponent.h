@@ -41,14 +41,18 @@ protected:
 	EFiringState FiringState = EFiringState::Reloading;
 
 private:
+	virtual void BeginPlay() override;
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000;
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
-	void MoveBarrelTowards(FVector AimDirection);
+	void MoveBarrelTowards(FVector NewAimDirection);
+	bool IsBarrelMoving();
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjetileBlueprint;
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float ReloadTimeInSeconds = 3;
 	double LastFireTime = 0;
+	FVector AimDirection;
 };
