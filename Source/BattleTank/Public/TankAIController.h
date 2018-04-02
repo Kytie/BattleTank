@@ -20,7 +20,7 @@ private:
 	virtual void Tick(float DeltaTime) override;
 
 	//Distance from player that is acceptable for AI to reach.
-	UPROPERTY(EditDefaultsOnly, Category = "Navigation")
+	UPROPERTY(EditAnywhere, Category = "Navigation")
 	float AcceptanceRadius = 3000;
 
 public:
