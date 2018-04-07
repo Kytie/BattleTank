@@ -7,6 +7,7 @@
 #include "TankAIController.generated.h"
 
 class ATank;
+class APawn;
 
 /**
  * 
@@ -22,6 +23,11 @@ private:
 	//Distance from player that is acceptable for AI to reach.
 	UPROPERTY(EditAnywhere, Category = "Navigation")
 	float AcceptanceRadius = 3000;
+
+	virtual void SetPawn(APawn* InPAwn) override;
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
 
 public:
 	ATankAIController();
